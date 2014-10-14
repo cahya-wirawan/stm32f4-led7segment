@@ -6,7 +6,6 @@
 
 #include <stdio.h>
 #include "STM32F4xx.h"
-#include "LED.h"
 #include "Keyboard.h"
 
 #include "Led7Segment.h"
@@ -35,10 +34,10 @@ void Delay (uint32_t dlyTicks) {
   Main function
  *----------------------------------------------------------------------------*/
 int main (void) {
-  int32_t led_num = LED_Num();
+  int32_t led_num = Led7Segment_Num();
   int num = 0; 
   //int32_t dir =  1;
- uint32_t btns = 0;
+  //uint32_t btns = 0;
 
   SystemCoreClockUpdate();                      /* Get Core Clock Frequency   */
   if (SysTick_Config(SystemCoreClock / 1000)) { /* SysTick 1 msec interrupts  */
@@ -48,17 +47,17 @@ int main (void) {
   Led7Segment_Initialize();
   Keyboard_Initialize();
 
+	// Print numbers < 1000 to 3 of 7 segment Leds
   while(1) {                                    /* Loop forever               */
-    btns = Keyboard_GetKeys();                  /* Read button states         */
+		/*
+    btns = Keyboard_GetKeys();                  // Read button states
 		if (btns == (1UL << 0)) {
 			num = (num+1)%1000;
 		}
-		//Led7Segment_PrintNumber(num);
-		//Led7Segment_Write(0, (short)num);
+		*/
 		Delay(500);
-		//LED_On(num);
-		//Led7Segment_Write(0, (short)num);
-		Led7Segment_PrintDecNumber(num);
+		Led7Segment_PrintDecNumber(num);  	// print decimal numbers
+		//Led7Segment_PrintHexNumber(num);	// print hexadecimal numbers
 		Delay(500);
 		Led7Segment_Out(0);
 		num = (num+1)%1000;
