@@ -9,10 +9,6 @@
 
 
 const GPIO_PIN_ID Pin_LED7SEGMENT[] = {
-	{ GPIOD, 12 },
-  { GPIOD, 13 },
-  { GPIOD, 14 },
-  { GPIOD, 15 },
   { GPIOE, 0 },
   { GPIOE, 1 },
   { GPIOE, 2 },
@@ -21,16 +17,10 @@ const GPIO_PIN_ID Pin_LED7SEGMENT[] = {
   { GPIOE, 5 },
   { GPIOE, 6 },
   { GPIOE, 7 },
-  { GPIOE, 8 },
-  { GPIOE, 9 },
-  { GPIOE, 10 },
-  { GPIOE, 11 },
-	/*
   { GPIOE, 12 },
   { GPIOE, 13 },
   { GPIOE, 14 },
   { GPIOE, 15 }
-	*/
 };
 
 #define NUM_LED7SEGMENT (sizeof(Pin_LED7SEGMENT)/sizeof(GPIO_PIN_ID))
