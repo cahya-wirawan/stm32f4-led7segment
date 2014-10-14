@@ -124,15 +124,15 @@ uint32_t Led7Segment_Num (void) {
  * Return:      none
  *----------------------------------------------------------------------------*/
 void Led7Segment_Write (short segment, short num) {
-	short i;
-	
-	for(i=0; i<4; i++)  {
-		if((1<<i) & num) {
-			Led7Segment_On(segment*4 + i);
-		} else {
-			Led7Segment_Off(segment*4 + i);
-		}
-	}
+  short i;
+  
+  for(i=0; i<4; i++)  {
+    if((1<<i) & num) {
+      Led7Segment_On(segment*4 + i);
+    } else {
+      Led7Segment_Off(segment*4 + i);
+    }
+  }
 }
 
 /*-----------------------------------------------------------------------------
@@ -142,17 +142,17 @@ void Led7Segment_Write (short segment, short num) {
  * Return:      none
  *----------------------------------------------------------------------------*/
 void Led7Segment_PrintNumber (int num, short base) {
-	short i;
-	if(num>=1000)
-		return;
-	i = num % base;
-	Led7Segment_Write(0, i);
-	num = (short)(num/base);
-	i = num % base;
-	Led7Segment_Write(1, i);
-	num = (short)(num/base);
-	i = num % base;
-	Led7Segment_Write(2, i);
+  short i;
+  if(num>=1000)
+    return;
+  i = num % base;
+  Led7Segment_Write(0, i);
+  num = (short)(num/base);
+  i = num % base;
+  Led7Segment_Write(1, i);
+  num = (short)(num/base);
+  i = num % base;
+  Led7Segment_Write(2, i);
 }
 
 /*-----------------------------------------------------------------------------
@@ -162,7 +162,7 @@ void Led7Segment_PrintNumber (int num, short base) {
  * Return:      none
  *----------------------------------------------------------------------------*/
 void Led7Segment_PrintDecNumber (int num) {
-	Led7Segment_PrintNumber(num, 10);
+  Led7Segment_PrintNumber(num, 10);
 }
 
 /*-----------------------------------------------------------------------------
@@ -172,5 +172,5 @@ void Led7Segment_PrintDecNumber (int num) {
  * Return:      none
  *----------------------------------------------------------------------------*/
 void Led7Segment_PrintHexNumber (int num) {
-	Led7Segment_PrintNumber(num, 16);
+  Led7Segment_PrintNumber(num, 16);
 }

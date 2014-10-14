@@ -47,19 +47,19 @@ int main (void) {
   Led7Segment_Initialize();
   Keyboard_Initialize();
 
-	// Print numbers < 1000 to 3 of 7 segment Leds
+  // Print numbers < 1000 to 3 of 7 segment Leds
   while(1) {                                    /* Loop forever               */
-		/*
+    /*
     btns = Keyboard_GetKeys();                  // Read button states
-		if (btns == (1UL << 0)) {
-			num = (num+1)%1000;
-		}
-		*/
-		Delay(500);
-		Led7Segment_PrintDecNumber(num);  	// print decimal numbers
-		//Led7Segment_PrintHexNumber(num);	// print hexadecimal numbers
-		Delay(500);
-		Led7Segment_Out(0);
-		num = (num+1)%1000;
+    if (btns == (1UL << 0)) {
+      num = (num+1)%1000;
+    }
+    */
+    Delay(500);
+    Led7Segment_PrintDecNumber(num);    // print decimal numbers
+    //Led7Segment_PrintHexNumber(num);  // print hexadecimal numbers
+    Delay(500);
+    Led7Segment_Out(0);                 // turned of all leds
+    num = (num+1)%1000;
   }
 }
